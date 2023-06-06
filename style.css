@@ -1,13 +1,16 @@
 body{
     display: grid;
-    grid-template-rows: 1;
-    grid-template-columns: 1;
-    align-items: center;
-    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    row-gap: 30px;
 }
 
 #header{
     text-align: center;
+}
+
+#header h1{
+    margin: 0;
 }
 
 #main{
@@ -23,23 +26,33 @@ body{
 }
 
 .letter{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
     height: 70px;
     width: 70px;
 
     font-weight: 500;
+    font-size: larger;
     background-color: white;
     border-radius: 10px;
     border: 2px solid black;
 }
 
+#bottom{
+    height: 60px;
+}
+
 .incorrect{
-    background-color: gray;
+    background-color: rgba(128, 128, 128, 0.518);
 }
 
 .misplaced{
-    background-color: yellow;
+    background-color: rgba(255, 255, 0, 0.386);
 }
 
 .correct{
-    background-color: green;
+    background-color: rgb(6, 243, 6);
 }

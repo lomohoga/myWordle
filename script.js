@@ -90,7 +90,10 @@ window.addEventListener("load", () => {
     let url = "https://gist.githubusercontent.com/dracos/dd0668f281e685bad51479e5acaadb93/raw/ca9018b32e963292473841fb55fd5a62176769b5/valid-wordle-words.txt";
     fetch(url)
     .then(d => d.text())
-    .catch(() => document.querySelector("#message").innerHTML = "Cannot get the word. Please check your Internet connection and try again.")
+    .catch(() => {
+        // Disable keypress here
+        document.querySelector("#message").innerHTML = "Cannot get the word. Please check your Internet connection and try again.";
+    })
     .then(response => {
         let words = response.split("\n");
         let index = Math.floor(Math.random() * words.length);
