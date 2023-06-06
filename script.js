@@ -57,8 +57,6 @@ window.addEventListener("load", () => {
         mysteryWord = words[index].toUpperCase();
 
         window.addEventListener("keydown", function readKeys(e){
-            console.log("Hello");
-        
             if(e.key === "Backspace"){
                 if(currentIndex == 0){
                     return;

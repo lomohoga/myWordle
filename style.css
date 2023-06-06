@@ -1,8 +1,12 @@
+@import url(fonts.css);
+
 body{
     display: grid;
     align-content: center;
     justify-items: center;
     row-gap: 30px;
+
+    font-family: 'Ubuntu';
 }
 
 #header{
@@ -34,8 +38,8 @@ body{
     height: 70px;
     width: 70px;
 
-    font-weight: 500;
-    font-size: larger;
+    font-weight: 1000;
+    font-size: x-large;
     background-color: white;
     border-radius: 10px;
     border: 2px solid black;
