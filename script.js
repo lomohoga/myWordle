@@ -48,8 +48,8 @@ window.addEventListener("load", () => {
     fetch(url)
     .then(d => d.text())
     .catch(() => {
-        // Disable keypress here
         document.querySelector("#message").innerHTML = "Cannot get the word. Please check your Internet connection and try again.";
+        document.querySelector('#message').classList.add('error-msg');
     })
     .then(response => {
         let words = response.split("\n");
@@ -76,7 +76,6 @@ window.addEventListener("load", () => {
         
                 if(checkAnswer()){
                     document.querySelector("#message").innerHTML = "Congratulations. You got the word.";
-                    // Remove handler here
                     this.removeEventListener("keydown", readKeys);
                     return;
                 }
@@ -84,7 +83,6 @@ window.addEventListener("load", () => {
                 currentRow++;
                 if(currentRow === 5){
                     document.querySelector("#message").innerHTML = "The mystery word is " + mysteryWord;
-                    // Remove handler here
                     this.removeEventListener("keydown", readKeys);
                     return;
                 }

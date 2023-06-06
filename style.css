@@ -56,3 +56,7 @@ body{
 .correct{
     background-color: rgb(6, 243, 6);
 }
+
+.error-msg{
+    color: red;
+}
