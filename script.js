@@ -27,49 +27,6 @@ function checkAnswer(){
     return found;
 }
 
-window.addEventListener("keydown", (e) => {
-    if(e.key === "Backspace"){
-        if(currentIndex == 0){
-            return;
-        }
-
-        let activeRow = document.querySelectorAll("#main .row")[currentRow];
-        activeRow.querySelectorAll(".letter")[currentIndex - 1].innerHTML = "";
-        currentIndex--;
-    }
-
-    if(e.key == "Enter"){
-        if(currentIndex < 5){
-            return;
-        }
-
-        if(checkAnswer()){
-            document.querySelector("#message").innerHTML = "Congratulations. You got the word.";
-            // Remove handler here
-            return;
-        }
-
-        currentRow++;
-        if(currentRow === 5){
-            document.querySelector("#message").innerHTML = "The mystery word is " + mysteryWord;
-            // Remove handler here
-            return;
-        }
-
-        currentIndex = 0;
-    }
-
-    if(e.key.match(/^[a-zA-Z]{1}$/)){
-        if(currentIndex == 5){
-            return;
-        }
-
-        let activeRow = document.querySelectorAll("#main .row")[currentRow];
-        activeRow.querySelectorAll(".letter")[currentIndex].innerHTML = e.key.toUpperCase();
-        currentIndex++;
-    }
-})
-
 window.addEventListener("load", () => {
     // Generate rows
     for(let a = 0; a < 5; a++){
@@ -98,5 +55,52 @@ window.addEventListener("load", () => {
         let words = response.split("\n");
         let index = Math.floor(Math.random() * words.length);
         mysteryWord = words[index].toUpperCase();
+
+        window.addEventListener("keydown", function readKeys(e){
+            console.log("Hello");
+        
+            if(e.key === "Backspace"){
+                if(currentIndex == 0){
+                    return;
+                }
+        
+                let activeRow = document.querySelectorAll("#main .row")[currentRow];
+                activeRow.querySelectorAll(".letter")[currentIndex - 1].innerHTML = "";
+                currentIndex--;
+            }
+        
+            if(e.key == "Enter"){
+                if(currentIndex < 5){
+                    return;
+                }
+        
+                if(checkAnswer()){
+                    document.querySelector("#message").innerHTML = "Congratulations. You got the word.";
+                    // Remove handler here
+                    this.removeEventListener("keydown", readKeys);
+                    return;
+                }
+        
+                currentRow++;
+                if(currentRow === 5){
+                    document.querySelector("#message").innerHTML = "The mystery word is " + mysteryWord;
+                    // Remove handler here
+                    this.removeEventListener("keydown", readKeys);
+                    return;
+                }
+        
+                currentIndex = 0;
+            }
+        
+            if(e.key.match(/^[a-zA-Z]{1}$/)){
+                if(currentIndex == 5){
+                    return;
+                }
+        
+                let activeRow = document.querySelectorAll("#main .row")[currentRow];
+                activeRow.querySelectorAll(".letter")[currentIndex].innerHTML = e.key.toUpperCase();
+                currentIndex++;
+            }
+        })
     })
 })
