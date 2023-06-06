@@ -1,0 +1,45 @@
+body{
+    display: grid;
+    grid-template-rows: 1;
+    grid-template-columns: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+#header{
+    text-align: center;
+}
+
+#main{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+}
+
+.letter{
+    height: 70px;
+    width: 70px;
+
+    font-weight: 500;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+
+.incorrect{
+    background-color: gray;
+}
+
+.misplaced{
+    background-color: yellow;
+}
+
+.correct{
+    background-color: green;
+}
