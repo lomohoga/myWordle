@@ -80,7 +80,7 @@ window.addEventListener("load", () => {
         
                 currentRow++;
                 if(currentRow === 5){
-                    document.querySelector("#message").innerHTML = "The mystery word is " + mysteryWord;
+                    document.querySelector("#message").innerHTML = "The mystery word is <b>" + mysteryWord + "</b>";
                     this.removeEventListener("keydown", readKeys);
                     return;
                 }
